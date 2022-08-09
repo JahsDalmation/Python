@@ -1,0 +1,345 @@
+#+title: readMe.org
+#+auto-tangle: t
+
+* tableOfContents :toc:
+- [[#readmeorg][readMe.org]]
+  - [[#structure][Structure]]
+  - [[#__init__py][__init__.py]]
+  - [[#mainpy][main.py]]
+
+* readMe.org
+
+Hey!
+
+Write 1; org document;
+
+          readMe.org,
+
+readMe.org contains the entire project.
+Welcome to the project!
+    readMe is a hello to the reader.
+    Here you explain things about the project. Try explaining;
+            Project structure,
+            Code style,
+
+** Structure
+
+*** readMe.org
+
+The readMe file is where all the documentation and code is written.
+Explain how org documents are written, and the easiest way to read
+them.
+
+
+**** __init__.py
+
+Tangle 1; __init__ python file;
+
+__init__.py is a script called when the program is
+    started.
+
+***** imports
+
+Imports are needed to import functions and classes
+
+Imports come first as they are needed before the function/class
+    is called.
+
+Although they come first, imports are usually made continuously.
+    Sometimes you might make or need new tools.
+
+from exampleClasses import (
+    exampleClass1,
+    exampleClass2,
+    exampleClass3 as e,
+)
+
+from exampleFunctions import (
+    exampleFunction1,
+    exampleFunction2 as eF,
+)
+
+***** variables
+***** data
+***** spaget
+****** functions.py
+****** classes.py
+
+**** main.py
+
+Tangle 1; main python file;
+
+main.py contains all imports, variables,
+    function or class calls. To use tools to build a
+    solution :)
+    Functions and classes are written under/for main.py.
+
+***** imports
+
+Import the needed libraries;
+    Do not forget the functions and classes librairies,
+        (functions.py & classes.py)!
+
+***** variables
+
+The variables
+
+***** data
+
+Storing data
+
+***** spaget
+
+Consider the spaget as a menu to the imported functions
+and classes for the project.
+
+    Allowing the user to interact with them.
+
+and/or
+
+As a 'script' to call functions and classes automatically.
+
+    Allowing the program to run without user input
+
+and/or
+
+Changing/Assigning data
+
+    Using user input or other external means of gethering data,
+    and assigning them with the appropriate data type formatting.
+
+in any case
+
+The spaget is deciding/choosing function and classes to
+call.
+
+spaget is desert
+
+****** functions.py
+
+functions.py contains all the functions used by the
+    main file.
+functions are imported into main.py using;
+    from functions import exampleFunction
+and can be called;
+    exampleFunction(exampleArgument)
+
+****** classes.py
+
+classes.py contains all the classes used by the main
+    file.
+classes are imported to the main file
+    from classes import exampleFunction
+And can be called called;
+    e = exampleClass()
+Functions definied within can be used through the object variable;
+    e.exampleFunction('hi')
+
+
+** __init__.py
+
+*** imports
+
+#+begin_src python :tangle __init__.py
+### imports
+#+end_src
+
+**** functions
+
+#+begin_src python :tangle __init__.py
+#### functions
+from functions import (
+    hello,
+)
+#+end_src
+
+**** classess
+
+#+begin_src python :tangle __init__.py
+#### classes
+from classes import (
+    hi,
+)
+#+end_src
+
+*** variables
+
+#+begin_src python :tangle __init__.py
+### variables
+h = hi()
+#+end_src
+
+*** data
+
+#+begin_src python :tangle __init__.py
+### data
+msg = input("[ msg ] > ")
+#+end_src
+
+*** spaget
+
+#+begin_src python :tangle __init__.py
+### spaget
+hello(msg)
+
+if 5 < len(msg):
+    h.hey()
+#+end_src
+
+**** functions.py
+
+#+begin_src python :tangle functions.py
+### __init__.py / lns / 2 / 15
+### import / 2 / 'from functions import hello'
+### ln / 15 / 'hello(msg)'
+def hello(message):
+
+    print(message)
+#+end_src
+
+**** classes.py
+
+#+begin_src python :tangle classes.py
+### __init__.py / lns / 5 / 9 / 18
+### import / 5 / 'from classes import hi'
+class hi:
+
+    ### ln / 9 / 'h = hi()'
+    def __init__(self):
+
+        print("hello?")
+
+    ### ln / 18 / 'h.hey()'
+    def hey(self):
+
+        print("hey!")
+#+end_src
+
+
+** main.py
+
+*** imports
+
+#+begin_src python :tangle main.py
+### imports
+#+end_src
+
+**** functions
+
+#+begin_src python :tangle main.py
+#### functions
+from functions import (
+    exampleFunction1,
+    exampleFunction2,
+)
+#+end_src
+
+**** classes
+
+#+begin_src python :tangle main.py
+#### classes
+from classes import (
+    exampleClass,
+)
+#+end_src
+
+*** variables
+
+#+begin_src python :tangle main.py
+### variables
+counter = 1
+reply = 'hi'
+#+end_src
+
+*** data
+
+#+begin_src python :tangle main.py
+### data
+exampleList = (
+    "Hi",
+    "Hello",
+    "Goodbye",
+)
+#+end_src
+
+*** spaget
+
+#+begin_src python :tangle main.py
+### spaget...
+riding = False
+while riding != True:
+
+    rides = input("[ 1 ] <= [ x ] <= [ 5 ]")
+
+    try:
+
+        rides = int(rides)
+        if 1 <= rides <= 5:
+
+            riding = True
+
+        else:
+
+            riding = False
+
+    except ValueError:
+
+        riding = False
+
+while rides > 0:
+
+    exampleFunction1(exampleList)
+    exampleFunction2()
+
+    e = exampleClass()
+
+    e.exampleFunction(reply)
+
+    rides -= 1
+#+end_src
+
+**** Style/functions.py
+
+#+begin_src python :tangle functions.py
+### main.py / lns / 2 / 47
+### import / 2 / 'from functions import exampleFunction1'
+### ln / 47 / 'exampleFunction1(exampleList)'
+def exampleFunction1(exampleList):
+
+    counter = 1
+    for example in exampleList:
+
+        print(
+            "[ %s ] > [ %s ]" %
+            (counter, example)
+        )
+        counter += 1
+
+### main.py / lns / 3 / 48
+### import / 3 / 'from functions import exampleFunction2'
+### ln / 48 / 'exampleFunction2()'
+def exampleFunction2():
+
+    print("...")
+#+end_src
+
+**** Style/classes.py
+
+#+begin_src python :tangle classes.py
+### main.py / lns / 8 / 51 / 55
+### import / 8 / 'from classes import exampleClass'
+class exampleClass:
+
+    ### ln / 51 / 'e = exampleClass'
+    def __init__(self):
+
+        print("Welcome!")
+        reply = input("> ")
+        self.exampleFunction(reply)
+
+    ### self / __init__() / 'self.exampleFunction(reply)'
+    ### ln / 55 / 'e.exampleFunction(reply)'
+    def exampleFunction(self, Reply):
+
+        print(Reply)
+#+end_src
